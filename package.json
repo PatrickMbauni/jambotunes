@@ -1,16 +1,16 @@
 {
-    "name": "jambotunes app"
-  , "version": "0.1.0"
-  , "private": true,
+    "name": "jambotunes_app",
+  "version": "0.1.0",
+  "private": true,
   "description": "jambotunes website",
   "website" : "www.jambotunes.com",
   "repository": "www.github.com/sachgits/jambotunes.git",
   "main": "public/js/app.js",
 
   "dependencies": {
-      "express": "~4.12.4",
+    "express": "~4.12.4",
     "ejs": "~2.3.1",
-  "flux": "^2.0.1",
+    "flux": "^2.0.1",
     "keymirror": "~0.1.0",
     "object-assign": "^1.0.0",
     "react": "^0.13.3",
@@ -20,7 +20,7 @@
     "debug": "~2.2.0",
     "morgan": "~1.5.3",
     "serve-favicon": "~2.2.1"
-  }
+  },
   "devDependencies": {
     "browserify": "^6.2.0",
     "envify": "^3.0.0",
