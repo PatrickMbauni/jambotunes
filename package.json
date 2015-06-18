@@ -31,7 +31,7 @@
   },
   "scripts": {
     "start": "watchify -o public/js/bundle.js -v -d public/js/app.js",
-    "build": "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm > public/js/bundle.min.js",
+    "build": "browserify . -t [envify --NODE_ENV development] -d | uglifyjs -cm > public/js/bundle.min.js",
     "test": "jest"
   },
   "author": "sachgits",
