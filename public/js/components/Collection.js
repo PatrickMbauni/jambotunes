@@ -6,7 +6,7 @@ var React = require('react');
 var collection = React.createClass({
     render: function(){
         return (
-            React.createElement('div', 'collection part')
+            <div><h1>Collection</h1></div>
         );
     }
 });
