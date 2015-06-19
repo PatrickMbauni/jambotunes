@@ -6,7 +6,7 @@ var React = require('react');
 var Popular = React.createClass({
     render: function(){
         return (
-            React.createElement('div', 'Popular Songs Go here')
+            <div><h1>Popular Songs goes here</h1></div>
         );
     }
 });

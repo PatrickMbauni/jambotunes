@@ -7,7 +7,7 @@ var React = require('react');
 var main =  React.createClass({
     render: function () {
         return (
-           React.createElement('div', "just wont work")
+            <div><h1>Main App</h1></div>
         );
     }
 });

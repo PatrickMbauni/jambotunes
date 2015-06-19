@@ -6,7 +6,7 @@ var React = require('react');
 var Register = React.createClass({
     render: function(){
         return (
-            React.createElement('div', 'Register part')
+            <div><h1>Register new user</h1></div>
         );
     }
 });

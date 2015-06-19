@@ -6,7 +6,7 @@ var React = require('react');
 var login = React.createClass({
     render: function(){
         return (
-            React.createElement('div', 'login form')
+            <div><h1>login</h1></div>
         );
 
     }

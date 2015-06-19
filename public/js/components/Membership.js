@@ -6,7 +6,7 @@ var React = require('react');
 var membership = React.createClass({
     render: function(){
         return (
-            React.createElement('div', 'membership goes here')
+            <div><h1>Membership goes here</h1></div>
         );
     }
 });
