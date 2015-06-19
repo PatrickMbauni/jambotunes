@@ -16,35 +16,36 @@ var Register = require('./components/Register');
 var Login = require('./components/Login');
 var Collection = require('./components/Collection');
 
-var routes = (
-    <Route path="/" handler={Main}  >
-        <Route path="Popular" handler={Popular} />
-        <Route path="Membership" handler={Membership} >
-            <Route path="login" handler={Login} />
-            <Route path="Register" handler={Register} />
-        </Route>
-        <Route path="Collection" handler={Collection} />
-        <DefaultRoute handler={Main} />
-    </Route>
-);
-
 var App = React.createClass({
     render: function(){
         return (
             <div>
             <h2>Jambotunes</h2>
                 <ul>
-                    <li><Link to="Popular" >Most Popular</Link></li>
-                    <li><Link to="Collection" >My Collections</Link></li>
-                    <li><Link to="Membership" >Membership</Link></li>
-                    <li><Link to="Membership/Login" >Login</Link></li>
+                    <li><Link to="/Popular" >Popular</Link></li>
+                    <li><Link to="/Collection" >My Collections</Link></li>
+                    <li><Link to="/Membership" >Membership</Link></li>
+                    <li><Link to="/Membership/Login" >Login</Link></li>
                 </ul>
+                <div id="root" ></div>
                 <RouteHandler></RouteHandler>
             </div>
-        )
+        );
     }
 });
+var routes = (
+    <Route path="/" handler={App}  >
+        <DefaultRoute handler={Main} />
+        <Route path="Popular" handler={Popular} />
+        <Route path="Membership" handler={Membership} >
+            <Route path="login" handler={Login} />
+            <Route path="Register" handler={Register} />
+        </Route>
+        <Route path="Collection" handler={Collection} />
 
-Router.run(routes, function(Root){
+    </Route>
+);
+Router.run(routes, Router.HashLocation, function(Root){
     React.render(<Root />, document.body);
 });
+
