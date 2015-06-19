@@ -7,6 +7,7 @@ var Router = require('react-router');
 var Route = Router.Route;
 var DefaultRoute = Router.DefaultRoute;
 var RouteHandler = Router.RouteHandler;
+var Link = Router.Link;
 
 var Main = require('./components/App');
 var Popular = require('./components/Popular');
@@ -27,7 +28,7 @@ var routes = (
     </Route>
 );
 
-var Application = React.createClass({
+var App = React.createClass({
     render: function(){
         return (
             <div>
@@ -44,3 +45,6 @@ var Application = React.createClass({
     }
 });
 
+Router.run(routes, Router.HashLocation, function(Root){
+    React.render(<Root />, document.body);
+});
