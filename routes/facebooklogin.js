@@ -1,12 +1,13 @@
 /**
- * Created by accutech on 6/17/15.
+ * Created by Gitonga on 6/22/2015.
  */
 var express = require('express');
 var router = express.Router();
 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('users', { title: 'jambotune Users' });
+    res.render('index', { title: 'Jambotunes' });
 });
 
 module.exports = router;

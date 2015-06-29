@@ -16,78 +16,25 @@ var Register = require('./components/Register');
 var Login = require('./components/Login');
 var Collection = require('./components/Collection');
 var HorizontalMenu = require('./components/horizontalScrolableMenu');
-
+var SplashContainer = require('./components/splashContainer');
+var FirstContent = require('./components/content');
 var App = React.createClass({
     render: function(){
         return (
             <div >
-                <div className="header">
+                <div className="custom-menu-wrapper" >
                     <HorizontalMenu  />
                 </div>
-                <div className="splash-container">
-                    <div className="splash">
-                        <h1 className="splash-head">A JAMBOTUNES INC</h1>
-                        <p className="splash-subhead">
-                            including Kigocco,Benga,Gospel,Rhumba
-                        </p>
-                        <p>
-                            <a href="http://www.jambotunes.com" className="pure-button pure-button-primary">Jambo Tunes</a>
-                        </p>
-                    </div>
-                </div>
-
+                <SplashContainer />
                 <div className="content-wrapper">
-                    <div className="content">
-                        <h2 className="content-head is-center">New Music</h2>
-
-                        <div className="pure-g">
-                            <div className="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-
-                                <h3 className="content-subhead">
-                                    <i className="fa fa-rocket"></i>
-                                    SignUp with Us
-                                </h3>
-                                <p>
-
-                                </p>
-                            </div>
-                            <div className="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-                                <h3 className="content-subhead">
-                                    <i className="fa fa-mobile"></i>
-                                    Explore Artists
-                                </h3>
-                                <p>
-
-                                </p>
-                            </div>
-                            <div className="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-                                <h3 className="content-subhead">
-                                    <i className="fa fa-th-large"></i>
-                                    Modular
-                                </h3>
-                                <p>
-
-                                </p>
-                            </div>
-                            <div className="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-                                <h3 className="content-subhead">
-                                    <i className="fa fa-check-square-o"></i>
-                                    Plays Nice
-                                </h3>
-                                <p>
-
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
+                    <FirstContent />
                     <div className="ribbon l-box-lrg pure-g">
                         <div className="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
                             <img className="pure-img-responsive" alt="File Icons" width="300" src="img/common/file-icons.png" />
                         </div>
                             <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
 
-                                <h2 className="content-head content-head-ribbon">Most Popular.</h2>
+                                <h2 className="content-head content-head-ribbon">Popular Music</h2>
 
                                 <p>
 
@@ -96,24 +43,19 @@ var App = React.createClass({
                         </div>
 
                     <div className="content">
-                        <h2 className="content-head is-center">Sign Up with Us</h2>
+                        <h2 className="content-head is-center">Sign Up with </h2>
 
                         <div className="pure-g">
                             <div className="l-box-lrg pure-u-1 pure-u-md-2-5">
-                                <form className="pure-form pure-form-stacked">
+                                <form action="/locallogin" method="post" className="pure-form pure-form-stacked" >
                                     <fieldset>
 
-                                        <label for="name">Your Name</label>
-                                        <input id="name" type="text" placeholder="Your Name"/>
+                                        <label htmlfor="username">Your Name</label>
+                                        <input  name="username" type="text" placeholder="Your Name"/>
+                                        <label htmlfor="password">Your Password</label>
+                                        <input  name="password" type="password" placeholder="Your Password" />
 
-
-                                            <label for="email">Your Email</label>
-                                            <input id="email" type="email" placeholder="Your Email"/>
-
-                                                <label for="password">Your Password</label>
-                                                <input id="password" type="password" placeholder="Your Password" />
-
-                                                    <button type="submit" className="pure-button">Sign Up</button>
+                                        <button type="submit" className="pure-button">Sign Up</button>
                                     </fieldset>
                                 </form>
                             </div>
@@ -124,10 +66,9 @@ var App = React.createClass({
 
                                 </p>
 
-                                <h4>More Information</h4>
-                                <p>
-                                                this site contains content from artists and fans from around the internet in it's natural form.
-                                    such content is not representative of Jambotunes Network
+                                <h4>More Info</h4>
+                                <p>this site contains content from artists and fans from around the internet in it's natural form.
+                                    such content is not representative of Jambotunes Media Limited
                                 </p>
                             </div>
                         </div>
@@ -154,6 +95,6 @@ var routes = (
     </Route>
 );
 Router.run(routes, Router.HashLocation, function(Root){
-    React.render(<Root />, document.body);
+    React.render(<Root />, document.getElementById("react"));
 });
 
