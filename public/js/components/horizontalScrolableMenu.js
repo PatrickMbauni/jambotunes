@@ -33,7 +33,7 @@ var horizontalScrollMenu = React.createClass({
                 <div
                     className="pure-menu pure-menu-horizontal pure-menu-scrollable custom-menu custom-menu-bottom custom-menu-tucked"
                     ref="tuckedMenu">
-                    <div className="custom-menu-screen"></div>
+
                     <ul class="pure-menu-list">
                         <li className="pure-menu-item"><a href="/" className="pure-menu-link">Home</a></li>
                         <li className="pure-menu-item"><a href="#" className="pure-menu-link">Benga</a></li>
@@ -49,6 +49,7 @@ var horizontalScrollMenu = React.createClass({
                         <li className="pure-menu-item"><a href="/Artists" className="pure-menu-link">Artists</a></li>
                         <li className="pure-menu-item"><a href="/locallogin" className="pure-menu-link">sign in</a></li>
                     </ul>
+
                 </div>
 
             </div>

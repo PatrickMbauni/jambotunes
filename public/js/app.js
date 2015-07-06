@@ -95,6 +95,6 @@ var routes = (
     </Route>
 );
 Router.run(routes, Router.HashLocation, function(Root){
-    React.render(<Root />, document.getElementById("react"));
+    React.render(<Root />, document.body);
 });
 

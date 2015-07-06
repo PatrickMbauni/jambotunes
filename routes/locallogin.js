@@ -5,20 +5,16 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var user = require('../knex/knexqueries');
 
 passport.use(new LocalStrategy(
     function(username, password,done){
-        //find user form database quick fix
-        if(!username || !password)
-            return done(null, false,{message: "incorrect username or password"});
-        else if(username === "jambotunes"){
-            return done(null, {'username':username,"password":password});
-        } if(username !== "jambotunes"){
-            return done(null, false,{message:"incorrect username or password"});
-        }
-        else{
-            var err = new Error("could not authenticate user " + username);
-            return done(err);
+        try {
+            var founduser = user.login(username,password);
+            return done(null, founduser);
+
+        }catch(err){
+            return done(err)
         }
     }));
 passport.serializeUser(function(user,done){

@@ -14,6 +14,7 @@ var facebooklogin = require('./routes/facebooklogin');
 var loginLocal = require('./routes/locallogin');
 
 
+
 var app = express();
 
 // view engine setup
@@ -26,9 +27,10 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({secret:"why keyboard cat always",resave:true,saveUninitialized:false}));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({secret:"why keyboard cat always",resave:true,saveUninitialized:false}));
 
 
 app.use('/',routes);
