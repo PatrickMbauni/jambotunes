@@ -3,17 +3,35 @@
  */
 var bookshelf = require('./dbConfig');
 var bcrypt = require('bcryptjs');
+var faker = require('faker');
 
 var User = bookshelf.Model.extend({
-    tablename: 'users',
-    login: function(username,password){
-        if(!username || !password) throw new Error('Email and password are both required');
-        return new this({username: username.toLowerCase().trim()}).fetch({require: true}).tap(
-            function(User){
-                return bcrypt.compare(User.get('password'),password);
-            }
-        );
+    tableName: 'users',
+    login: function(username,password){ //remake this function whole of it
+        try {
+            return this.fetch({require: true}).then(
+                function (User) {
+                    if (bcrypt.compareSync(password, User.get('password')))
+                        return User.omit('password');
+                    else {
+                        return false;
+                    }
+                }
+            );
+        }catch(err){
+            throw err;
+        }
+    },
+    createUser: function(username,password,email,firstname,lastname,phonenumber){
+        if(this.__verifyUserFields(username,password,email,firstname)){
+            return {username:username,password:bcrypt.hashPassword(password),email:email,
+                firstname:firstname,lastname:lastname,phonenumber:phonenumber};
+        }else
+            return false;
+    },
+    __verifyUserFields: function(username,password,email,firstname){
+        return (username && password && email && firstname);//some other checks comming soon
     }
 });
 
-module.exports = User;
+module.exports= User;

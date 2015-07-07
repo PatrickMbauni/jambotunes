@@ -6,7 +6,6 @@
   "website": "www.jambotunes.com",
   "repository": "www.github.com/sachgits/jambotunes.git",
   "main": "public/js/app.js",
-
   "dependencies": {
     "bcryptjs": "^2.1.0",
     "body-parser": "~1.12.4",
@@ -16,6 +15,7 @@
     "ejs": "~2.3.1",
     "express": "~4.12.4",
     "express-session": "^1.10.1",
+    "faker": "^2.1.5",
     "flux": "^2.0.1",
     "jquery": "^2.1.4",
     "keymirror": "~0.1.0",

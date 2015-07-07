@@ -9,20 +9,24 @@ var user = require('../knex/knexqueries');
 
 passport.use(new LocalStrategy(
     function(username, password,done){
-        try {
-            var founduser = user.login(username,password);
+        try{
+            if(!username || !password)throw new Error("username or password not provided");
+            var localUser = new user({username: username.toLowerCase().trim()});
+            var founduser = localUser.login(username,password);
+            if(!founduser)
+                return done(null,false, {message: "Incorrect password"});
             return done(null, founduser);
-
         }catch(err){
-            return done(err)
+            return done(err);
         }
     }));
 passport.serializeUser(function(user,done){
-    done(null, 'jambotunes');//fake_data
+    done(null, user.get('id_user'));//fake_data
 });
 
 passport.deserializeUser(function(id,done){
-    done(null, id);//fake_data
+    var deserialize = new user({id_user: id});
+    done(false,deserialize.fetchOne());//not yet complete
 });
 //express.use(sess({secret:"always keyboard cat"}));
 router.use(passport.initialize());
