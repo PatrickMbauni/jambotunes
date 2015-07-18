@@ -3,6 +3,8 @@
  */
 var React = require('react');
 var Lbox1 = require('./Lbox');
+var $ = require('jquery');
+
 //var Lbox2 = require('./Lbox2');
 songs = [{Artist:"Rose Muhando",songTitle:"nibebe",artistImage:"/roseMuhando/nibebe"},
     {Artist:"Loise Kim",songTitle:"kuhutia karurigi",artistImage: "/loiseKim/karurigi"},
@@ -26,12 +28,23 @@ var Content = React.createClass({
     getContent: function(){
         //load content from ajax whenever needed
         $.ajax({
-            method: "post",url:"/songContent",
+            method: "get",url:"/songs",
             success: function(songs){
                 this.setState({songs: songs})
             },
             error: function(xhr,status,err){
-                console.log("could not fetch from ajax");
+                console.log(err);
+            }
+        });
+    },
+    componentDidMount: function(){
+        $.ajax({
+            method: "get",url:"/songs",
+            success: function(songs){
+                this.setState({songs: songs})
+            },
+            error: function(xhr,status,err){
+                console.log(err);
             }
         });
     },
@@ -44,7 +57,6 @@ var Content = React.createClass({
             <div className="content">
                 <h2 className="content-head is-center">New Music</h2>
                 {songsBox}
-                <Lbox1 title="Loise Kim" pmessage="Di ihenyaini" duration="3:50" clsname="fa fa-mobile" />
             </div>
         )
     }

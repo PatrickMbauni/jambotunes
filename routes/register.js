@@ -2,7 +2,7 @@
  * Created by Gitonga on 7/6/2015.
  */
 var faker = require('faker');
-var User = require('../knex/knexqueries');
+var User = require('../knex/UserModel');
 var bcrypt = require('bcryptjs');
 
 var express = require('express');

@@ -35,16 +35,7 @@ var horizontalScrollMenu = React.createClass({
                     ref="tuckedMenu">
 
                     <ul class="pure-menu-list">
-                        <li className="pure-menu-item"><a href="/" className="pure-menu-link">Home</a></li>
-                        <li className="pure-menu-item"><a href="#" className="pure-menu-link">Benga</a></li>
-                        <li className="pure-menu-item"><a href="#" className="pure-menu-link">Rhumba</a></li>
-                        <li className="pure-menu-item"><a href="#" className="pure-menu-link">Chakacha</a></li>
-                        <li className="pure-menu-item"><a href="#" className="pure-menu-link">Mwomboko</a></li>
-                        <li className="pure-menu-item"><a href="#" className="pure-menu-link">Twist</a></li>
-                        <li className="pure-menu-item"><a href="#" className="pure-menu-link">Calypso</a></li>
-                        <li className="pure-menu-item"><a href="#" className="pure-menu-link">Gikuyu</a></li>
-                        <li className="pure-menu-item"><a href="#" className="pure-menu-link">Regae</a></li>
-                        <li className="pure-menu-item"><a href="#" className="pure-menu-link">Folk</a></li>
+                        
                         <li className="pure-menu-item"><a href="/backend" className="pure-menu-link">backend</a></li>
                         <li className="pure-menu-item"><a href="/Artists" className="pure-menu-link">Artists</a></li>
                         <li className="pure-menu-item"><a href="/locallogin" className="pure-menu-link">sign in</a></li>

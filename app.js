@@ -13,6 +13,8 @@ var backend = require('./routes/backend');
 var facebooklogin = require('./routes/facebooklogin');
 var loginLocal = require('./routes/locallogin');
 var register = require('./routes/register');
+var newSongs = require('./routes/songs');
+var genre = require('./routes/genre');
 
 
 
@@ -47,6 +49,8 @@ app.use('/facebooklogin',facebooklogin);
 app.use('/locallogin', loginLocal);
 
 app.use('/register', register);
+
+app.use('/songs', newSongs);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

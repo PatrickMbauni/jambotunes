@@ -5,14 +5,21 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var user = require('../knex/knexqueries');
+var user = require('../knex/UserModel');
+var bcrypt = require('bcryptjs');
 
 passport.use(new LocalStrategy(
     function(username, password,done){
         try{
             if(!username || !password)throw new Error("username or password not provided");
-            var localUser = new user({username: username.toLowerCase().trim()});
-            var founduser = localUser.login(username,password);
+            var localUser = new user({username: username.toLowerCase().trim()}).fetch().then(function(User){
+                if (bcrypt.compareSync(password, User.get('password')))
+                    return User.omit('password');
+                else {
+                    return false;
+                }
+            });
+
             if(!founduser)
                 return done(null,false, {message: "Incorrect password"});
             return done(null, founduser);
